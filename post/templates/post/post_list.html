@@ -4,6 +4,6 @@
 <hr />
 
 <br />
-{% for post in all_post %}
+{% for post in object_list %}
 <a href="{% url 'blog:post_detail' post.id %}">{{post}}</a>
 <br />{% endfor %}

@@ -7,7 +7,7 @@ from django.views.generic import ListView,DetailView,CreateView,UpdateView
 def post_list(request):   
     all_post = Post.objects.all() ## data from model.
     #print (all_post)
-    return render(request, 'post/all_posts.html',{'all_post':all_post})
+    return render(request, 'post/post_list.html',{'all_post':all_post})
 
 def post_detail(request,id):
     post = Post.objects.get(id=id)
@@ -35,3 +35,10 @@ def post_edit(request,id):
 
 
 
+class PostList(ListView):
+    model = Post
+    
+    
+class PostDetail(DetailView):
+    model = Post
+    
