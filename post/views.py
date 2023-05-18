@@ -33,7 +33,7 @@ def post_edit(request,id):
         form =PostForm(instance=post)
     return render(request,'post/post_edit.html',{'form':form})                         
 
-
+#########################################
 
 class PostList(ListView):
     model = Post
@@ -41,4 +41,19 @@ class PostList(ListView):
     
 class PostDetail(DetailView):
     model = Post
+    
+class PostUdate(UpdateView):
+    model=Post
+    fields=['title','content','created_at']
+    template_name='post/post_edit.html'
+    success_url='/blog/cbv'
+    
+    
+class PostCreate(CreateView):
+    model=Post
+    fields=['title','content','created_at','email','views_count']
+    template_name='post/post_create.html'
+    success_url='/blog/cbv'
+    
+    
     
