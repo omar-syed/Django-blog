@@ -11,7 +11,7 @@ def post_list(request):
 
 def post_detail(request,id):
     post = Post.objects.get(id=id)
-    return render(request,'post/one_post.html',{'post':post} )
+    return render(request,'post/post_detail.html',{'post':post} )
 
 def post_create(request):
     if request.method == "POST":
